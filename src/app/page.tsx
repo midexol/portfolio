@@ -22,7 +22,7 @@ export default function Home() {
         <div className={styles.heroContent}>
           <div className={styles.textContent}>
             <span className={styles.iam}>I am</span>
-            <h1 className={styles.name}>Mide_xol</h1>
+            <h1 className={styles.name}>MIDE XOL</h1>
             <span className={styles.subtitle}>Data Analyst / Dev</span>
           </div>
           

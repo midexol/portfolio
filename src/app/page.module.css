@@ -78,7 +78,7 @@
   color: var(--text-primary);
   line-height: 1;
   text-transform: uppercase;
-  margin-bottom: -1rem;
+  margin-bottom: 0;
   letter-spacing: 2px;
 }
 
@@ -87,7 +87,7 @@
   font-size: 12rem;
   color: transparent;
   -webkit-text-stroke: 2px var(--text-primary);
-  line-height: 0.9;
+  line-height: 1;
   text-transform: uppercase;
   letter-spacing: -2px;
   position: relative;
