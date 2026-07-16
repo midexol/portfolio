@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import BackgroundWaves from "@/components/BackgroundWaves";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -13,7 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <BackgroundWaves />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
