@@ -40,7 +40,7 @@ export default function Home() {
               </p>
             </div>
             <div className={styles.aboutImage} style={{ padding: 0, overflow: 'hidden' }}>
-              <img src="https://github.com/Mide_xol.png" alt="Olamide Okunola" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <img src="https://github.com/midexol.png" alt="Olamide Okunola" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
           </div>
         </section>
@@ -101,7 +101,7 @@ export default function Home() {
         <p>© {new Date().getFullYear()} Olamide Okunola. All rights reserved.</p>
         <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', gap: '1.5rem' }}>
           <a href="mailto:okunolaolamide7@gmail.com">Email</a>
-          <a href="https://github.com/Mide_xol" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/midexol" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </footer>
     </div>
