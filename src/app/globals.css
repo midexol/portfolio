@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-color: #080808;
-  --surface-color: #121212;
-  --surface-hover: #1f1f1f;
+  --bg-color: #050505;
+  --surface-color: #111111;
+  --surface-hover: #1a1a1a;
   --text-primary: #ffffff;
   --text-secondary: #a0a0a0;
-  --accent-color: #c9a0ff;
+  --accent-color: #e50914; /* Crimson Red for gaming/anime aesthetic */
   --border-color: #2a2a2a;
 }
 

@@ -1,159 +1,251 @@
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.nav {
+.heroContainer {
+  height: 100vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem 0;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding: 0 4rem;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
-
-.navLinks {
+.topNav {
   display: flex;
-  gap: 2.5rem;
+  justify-content: flex-end;
+  padding: 3rem 0;
+  gap: 3rem;
+  z-index: 10;
 }
 
-.navLinks a {
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: var(--text-secondary);
-}
-
-.navLinks a:hover {
+.topNav a {
+  font-size: 1rem;
+  font-weight: 500;
   color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.btnNav {
-  background-color: var(--surface-color);
-  border: 1px solid var(--border-color);
-  padding: 0.6rem 1.8rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
+.topNav a:hover {
+  color: var(--accent-color);
+}
+
+.leftSocials {
+  position: absolute;
+  left: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  z-index: 10;
+}
+
+.leftSocials a {
+  color: var(--text-primary);
+  font-size: 1.5rem;
   transition: all 0.3s ease;
 }
 
-.btnNav:hover {
-  background-color: var(--text-primary);
-  color: var(--bg-color);
+.leftSocials a:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
 }
 
-.hero {
-  padding: 8rem 0;
+.heroContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 6rem;
+  position: relative;
+}
+
+.textContent {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  z-index: 5;
+  margin-top: -5rem;
+  position: relative;
 }
 
-.greeting {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
+.iam {
+  font-family: 'Anton', sans-serif;
+  font-size: 4rem;
+  color: var(--text-primary);
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: -1rem;
+  letter-spacing: 2px;
 }
 
-.title {
-  font-size: 4.5rem;
-  line-height: 1.05;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
+.name {
+  font-family: 'Anton', sans-serif;
+  font-size: 12rem;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--text-primary);
+  line-height: 0.9;
+  text-transform: uppercase;
   letter-spacing: -2px;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: default;
 }
 
-.description {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  max-width: 650px;
-  margin-bottom: 3rem;
+.name:hover {
+  color: var(--accent-color);
+  -webkit-text-stroke: 0px;
+  text-shadow: 0 0 30px rgba(229, 9, 20, 0.5);
 }
 
-.heroActions {
+.subtitle {
+  font-family: 'Anton', sans-serif;
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  margin-top: -0.5rem;
+  align-self: flex-end;
+  letter-spacing: 4px;
+}
+
+.heroImageContainer {
+  position: absolute;
+  right: -5%;
+  bottom: 0;
+  height: 95vh;
+  width: 50vw;
+  z-index: 2;
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.btnPrimary {
-  background-color: var(--accent-color);
-  color: var(--bg-color);
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  font-weight: 600;
+.imageGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  filter: blur(80px);
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.heroImage {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  z-index: 2;
+  position: relative;
+}
+
+.bottomStats {
+  position: absolute;
+  bottom: 4rem;
+  left: 10rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  z-index: 10;
+}
+
+.statItem {
   font-size: 1rem;
-  display: inline-block;
-  transition: opacity 0.3s ease;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.btnPrimary:hover {
-  opacity: 0.9;
+.divider {
+  width: 2px;
+  height: 20px;
+  background-color: var(--accent-color);
 }
 
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 5;
+}
+
+/* Sections */
 .section {
-  padding: 6rem 0;
-  border-top: 1px solid var(--border-color);
+  padding: 8rem 0;
 }
 
 .sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 500;
+  font-family: 'Anton', sans-serif;
+  font-size: 4rem;
+  color: var(--text-primary);
   margin-bottom: 4rem;
-  text-align: center;
-  letter-spacing: -1px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: 20px;
+  background-color: var(--accent-color);
+  z-index: -1;
+  opacity: 0.3;
 }
 
 .aboutGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 4rem;
-  align-items: center;
 }
 
 .aboutText p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
-}
-
-.aboutImage {
-  background-color: var(--surface-color);
-  aspect-ratio: 4/3;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
+  max-width: 800px;
 }
 
 .servicesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
 }
 
 .serviceCard {
-  background-color: var(--surface-color);
-  padding: 2.5rem;
-  border-radius: 16px;
+  background-color: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
   border: 1px solid var(--border-color);
+  border-top: 3px solid var(--accent-color);
   transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .serviceCard:hover {
   transform: translateY(-5px);
   border-color: var(--accent-color);
+  box-shadow: 0 10px 30px rgba(229, 9, 20, 0.1);
 }
 
 .serviceCard h3 {
-  font-size: 1.5rem;
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
   margin-bottom: 1rem;
-  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .serviceCard p {
@@ -163,55 +255,82 @@
 
 .serviceTags {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.8rem;
   flex-wrap: wrap;
 }
 
 .tag {
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-color);
-  padding: 0.4rem 1rem;
-  border-radius: 50px;
+  background-color: rgba(229, 9, 20, 0.1);
+  border: 1px solid rgba(229, 9, 20, 0.3);
+  padding: 0.4rem 1.2rem;
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 3rem;
 }
 
 .projectCard {
   cursor: pointer;
+  position: relative;
+  group: project;
 }
 
 .projectImage {
   background-color: var(--surface-color);
-  aspect-ratio: 4/3;
-  border-radius: 16px;
+  aspect-ratio: 16/9;
   margin-bottom: 1.5rem;
   border: 1px solid var(--border-color);
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
+  overflow: hidden;
+  position: relative;
 }
 
 .projectCard:hover .projectImage {
   border-color: var(--accent-color);
 }
 
+.projectImage::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: overlay;
+}
+
+.projectCard:hover .projectImage::after {
+  opacity: 0.2;
+}
+
 .projectCard h3 {
-  font-size: 1.4rem;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.8rem;
   margin-bottom: 0.3rem;
-  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .projectCard p {
-  color: var(--text-secondary);
+  color: var(--accent-color);
   font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .footer {
@@ -220,16 +339,13 @@
   text-align: center;
   color: var(--text-secondary);
   font-size: 0.95rem;
+  background-color: #000;
 }
 
-@media (max-width: 768px) {
-  .navLinks {
-    display: none;
-  }
-  .title {
-    font-size: 3rem;
-  }
-  .aboutGrid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 1024px) {
+  .heroContent { padding-left: 2rem; }
+  .name { font-size: 8rem; }
+  .bottomStats { left: 6rem; }
+  .heroImageContainer { right: -20%; opacity: 0.3; z-index: 0; }
+  .textContent { z-index: 5; }
 }
