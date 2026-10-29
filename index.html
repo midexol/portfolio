@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Olamide Okunola, data analyst</title>
+<meta name="description" content="Data analyst in Akure, Nigeria. Projects in SQL (MySQL), Python and Excel using public data.">
+<meta property="og:title" content="Olamide Okunola, data analyst">
+<meta property="og:description" content="Four data projects in SQL, Python and Excel, with the code on GitHub.">
+<link rel="icon" href="img/me/avatar.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* White paper, navy ink, one working blue. Light only, by request. */
+:root{
+  --paper:#FFFFFF; --ink:#0F1E33; --slate:#5B6B82; --soft:#8A98AD; --line:#DDE6F3;
+  --blue:#143F9E; --blue-deep:#0D2C73; --sky:#EEF4FE; --sky-2:#DCE8FC;
+  --code-bg:#F6F9FE; --shadow:0 1px 2px rgba(15,30,51,.06),0 12px 32px -12px rgba(20,63,158,.22);
+  --display:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--display);margin:0;line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%}
+.ic{flex:none;display:block}
+.ic path,.ic circle,.ic rect{vector-effect:non-scaling-stroke}
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+.brand-photo{width:34px;height:34px;border-radius:50%;object-fit:cover;display:block}
+.mark{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--blue);color:#fff;font-size:.8rem;font-weight:800;letter-spacing:.02em}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav ul a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--slate);font-weight:500;font-size:.95rem}
+.nav ul a:hover,.nav ul a.on{color:var(--blue);background:var(--sky)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font:600 .95rem var(--body);text-decoration:none;border:1.5px solid transparent;cursor:pointer;white-space:nowrap}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-deep)}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-sm{padding:8px 14px;font-size:.9rem}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding-block:clamp(40px,7vw,88px) clamp(48px,6vw,72px)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background-image:linear-gradient(var(--sky) 1px,transparent 1px),linear-gradient(90deg,var(--sky) 1px,transparent 1px);
+  background-size:32px 32px;mask-image:radial-gradient(ellipse 70% 80% at 75% 40%,#000 25%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 80% at 75% 40%,#000 25%,transparent 75%)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:center}
+.where{color:var(--blue);font-weight:600;font-size:.95rem}
+.hero h1{font-size:clamp(2.15rem,4.6vw,3.6rem);font-weight:700;letter-spacing:-.03em;margin-top:18px;line-height:1.04}
+.hero .lead{margin-top:22px;color:var(--slate);font-size:1.15rem;max-width:34em}
+.hero .lead b{color:var(--ink);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+
+/* the collage: real screenshots, stacked like printouts on a desk */
+.collage{position:relative;padding-bottom:150px}
+.hero-photo{margin:0;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:6px solid #fff;outline:1px solid var(--line)}
+.hero-photo img{display:block;width:100%;height:auto}
+.print{position:absolute;margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px;box-shadow:var(--shadow);overflow:hidden}
+.print img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:7px}
+.print figcaption{position:absolute;right:12px;top:12px;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:8px;padding:4px 9px;font-size:.78rem;font-weight:600;color:var(--ink)}
+.print figcaption .ic{color:var(--blue)}
+.p1{top:0;right:0;width:78%;height:52%;transform:rotate(2deg)}
+.p2{top:30%;left:0;width:64%;height:44%;transform:rotate(-3deg)}
+.p3{bottom:0;right:4%;width:58%;height:40%;transform:rotate(1.2deg)}
+.query{position:absolute;right:-4%;bottom:0;z-index:3;width:min(92%,330px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);font-family:var(--mono);font-size:.74rem;overflow:hidden}
+.q-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--sky);color:var(--blue-deep);font-family:var(--body);font-weight:600;font-size:.78rem;border-bottom:1px solid var(--line)}
+.q-body{padding:12px 14px 12px}
+.q-line{white-space:nowrap;overflow:hidden;color:var(--ink)}
+.q-line .kw{color:var(--blue);font-weight:500}
+.q-caret{display:inline-block;width:6px;height:1em;background:var(--blue);vertical-align:-2px;margin-left:1px;opacity:0}
+.q-caret.on{opacity:1;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.q-result{border-collapse:collapse;width:100%;margin-top:10px;font:inherit}
+.q-result th{text-align:left;font-weight:400;color:var(--soft);padding:0 10px 4px 0;border-bottom:1px solid var(--line)}
+.q-result td{padding:6px 10px 0 0;white-space:nowrap}
+.q-result a{color:var(--blue);text-decoration:none;font-weight:500}
+.q-foot{margin-top:8px;color:var(--soft);font-family:var(--body);font-size:.76rem}
+.q-result,.q-foot{transition:opacity .35s ease}
+.q-hide{opacity:0}
+
+/* ---------- sections ---------- */
+section{scroll-margin-top:80px}
+.sec{padding-block:clamp(56px,8vw,96px)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700;letter-spacing:-.03em}
+.sec-head p{color:var(--slate);max-width:36em}
+
+/* project index: a dataset listing */
+.index{width:100%;border-collapse:collapse;font-size:.98rem}
+.index th{text-align:left;font-weight:500;color:var(--soft);font-size:.86rem;padding:0 16px 10px 0;border-bottom:1.5px solid var(--ink)}
+.index td{padding:16px 16px 16px 0;border-bottom:1px solid var(--line);vertical-align:middle}
+.index tr:hover td{background:linear-gradient(var(--sky),var(--sky))}
+.ix-name{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1.12rem;text-decoration:none;letter-spacing:-.01em}
+.ix-name .ic{color:var(--blue)}
+.ix-name:hover span{color:var(--blue);text-decoration:underline;text-underline-offset:4px}
+.ix-q{color:var(--slate)}
+.ix-rows{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500}
+.ix-tools{white-space:nowrap}
+.ix-tools .logo{margin-right:6px;vertical-align:middle}
+
+/* case studies */
+.cases{display:grid;gap:clamp(56px,7vw,88px);margin-top:clamp(56px,7vw,88px)}
+.case{scroll-margin-top:84px}
+.case-head{display:block;align-items:flex-start;padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--line)}
+.case-icon{display:grid;place-items:center;width:52px;height:52px;flex:none;border-radius:14px;background:var(--sky);color:var(--blue)}
+.case-kind{color:var(--blue);font-weight:600;font-size:.92rem}
+.case h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;margin-top:4px;letter-spacing:-.03em}
+.case-meta{display:flex;flex-wrap:wrap;list-style:none;margin:10px 0 0;padding:0;color:var(--slate);font-size:.92rem}
+.case-meta li{padding-right:14px;margin-right:14px;border-right:1px solid var(--line)}
+.case-meta li:last-child{border-right:0;margin-right:0;padding-right:0}
+.case-body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+
+.stage{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fcfcfb;box-shadow:var(--shadow)}
+.shot{position:relative;display:block;width:100%;padding:0;border:0;background:#fcfcfb;cursor:zoom-in}
+.shot img{display:block;width:100%;height:auto}
+.zoom{position:absolute;top:10px;right:10px;display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.92);border:1px solid var(--line);color:var(--slate);opacity:0;transition:opacity .15s}
+.shot:hover .zoom,.shot:focus-visible .zoom{opacity:1}
+.panel-code{background:var(--code-bg)}
+.code-head{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid var(--line);background:#fff;font-family:var(--mono);font-size:.78rem;color:var(--slate)}
+.code-head .ic{color:var(--blue)}
+.code{margin:0;font-family:var(--mono);font-size:.76rem;line-height:1.65;padding:14px 16px;max-height:460px;overflow:auto;color:var(--ink)}
+.code .c1,.code .c,.code .cm{color:#7C8AA0;font-style:italic}
+.code .k,.code .kd,.code .kt{color:var(--blue);font-weight:500}
+.code .nb,.code .nf{color:#7A3FC4}
+.code .s1,.code .s,.code .s2{color:#0F7A55}
+.code .mi,.code .mf,.code .m{color:#B4530A}
+.code .o,.code .p{color:#5B6B82}
+.caption{margin-top:12px;color:var(--slate);font-size:.93rem;min-height:3em}
+.thumbs{display:flex;gap:8px;margin-top:8px;overflow-x:auto;padding:3px 3px 6px}
+.thumb{flex:none;width:84px;height:56px;padding:0;border:1.5px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;cursor:pointer;transition:border-color .15s,transform .15s}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.thumb:hover{border-color:var(--sky-2)}
+.thumb[aria-current="true"]{border-color:var(--blue);box-shadow:0 0 0 3px var(--sky)}
+.thumb-code{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:var(--sky);color:var(--blue);font-weight:600;font-size:.74rem}
+
+.story h4{font-size:1.02rem;font-weight:700;color:var(--blue);letter-spacing:-.01em}
+.story h4:not(:first-child){margin-top:22px}
+.story p{margin-top:6px;color:var(--slate);line-height:1.65}
+.story b{color:var(--ink);font-weight:600}
+.case-tools{display:flex;flex-wrap:wrap;gap:16px;list-style:none;margin:26px 0 0;padding:18px 0 0;border-top:1px solid var(--line);font-size:.92rem;font-weight:500}
+.case-tools li{display:flex;align-items:center;gap:7px}
+.case-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.link{display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border-radius:9px;border:1.5px solid var(--line);text-decoration:none;font-weight:600;font-size:.9rem;color:var(--ink)}
+.link .ic{color:var(--blue)}
+.link:hover{border-color:var(--blue);color:var(--blue)}
+
+/* toolkit */
+.tint{background:var(--sky)}
+.tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;list-style:none;margin:0;padding:0}
+.tool{display:flex;gap:16px;align-items:flex-start;background:#fff;border-radius:14px;padding:20px;border:1px solid var(--sky-2)}
+.tool-logos{display:flex;gap:6px;flex:none}
+.tool img{flex:none;width:44px;height:44px;padding:8px;border-radius:11px;background:var(--sky)}
+.tool h3{font-size:1.08rem;font-weight:700}
+.tool p{color:var(--slate);font-size:.93rem;margin-top:4px;line-height:1.55}
+.tool .tool-used{color:var(--blue);font-size:.84rem;font-weight:500;margin-top:10px}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:clamp(28px,5vw,56px);align-items:start}
+.portrait{margin:0;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.portrait img{display:block;width:100%;height:auto}
+.about-main{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,40px);align-items:start}
+.photos{display:grid;gap:14px}
+.candid{display:block;width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow)}
+.avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 0 0 1.5px var(--sky-2)}
+.where{display:flex;align-items:center;gap:12px}
+.about-text p{color:var(--slate);margin-top:16px;max-width:36em}
+.about-text p.big{color:var(--ink);font-family:var(--display);font-size:clamp(1.3rem,2.2vw,1.6rem);font-weight:600;line-height:1.3;letter-spacing:-.02em;margin-top:0}
+.facts{border:1px solid var(--line);border-radius:16px;padding:8px 22px;box-shadow:var(--shadow);background:#fff}
+.facts li{display:block;align-items:flex-start;padding-block:16px;border-bottom:1px solid var(--line)}
+.facts li:last-child{border-bottom:0}
+.facts ul{list-style:none;margin:0;padding:0}
+.facts .ic{color:var(--blue);margin-top:2px}
+.facts .flag{margin-top:2px;flex:none}
+.facts b{display:block;font-weight:600}
+.facts span{color:var(--slate);font-size:.93rem}
+.facts h3{font-size:.95rem;font-weight:700;color:var(--soft);padding:16px 0 0;letter-spacing:0;font-family:var(--body)}
+
+/* next up */
+.next{display:grid;grid-template-columns:minmax(0,1fr);max-width:620px;gap:14px;list-style:none;margin:0;padding:0}
+.next li{display:block;border:1.5px dashed #BCD0F2;border-radius:14px;padding:20px}
+.next-icon{display:grid;place-items:center;width:42px;height:42px;flex:none;border-radius:11px;background:var(--sky);color:var(--blue)}
+.next h3{font-size:1.05rem;font-weight:700}
+.next p{color:var(--slate);font-size:.93rem;margin-top:5px;line-height:1.55}
+.next .next-kind{color:var(--blue);font-size:.84rem;font-weight:500;margin-top:10px}
+
+/* contact */
+.contact{background:var(--blue);color:#fff;border-radius:24px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:end;position:relative;overflow:hidden}
+.contact::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;border:40px solid rgba(255,255,255,.07)}
+.contact h2{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:700;letter-spacing:-.03em}
+.contact p{color:#DCE8FC;margin-top:12px;max-width:30em}
+.mail-box{position:relative;z-index:1;display:grid;gap:10px;min-width:0}
+.contact>div{min-width:0}
+.mail{display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink);border-radius:12px;padding:8px 8px 8px 16px}
+.mail a{flex:1;min-width:0;font-weight:600;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mail .ic{color:var(--blue)}
+.copy{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--sky);color:var(--blue-deep);font:600 .88rem var(--body);padding:8px 12px;border-radius:8px;cursor:pointer}
+.copy:hover{background:var(--sky-2)}
+.btn-light{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35);justify-content:center}
+.btn-light:hover{background:rgba(255,255,255,.2)}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:28px 40px;color:var(--soft);font-size:.9rem}
+footer a{color:var(--slate)}
+
+/* lightbox */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);width:100%}
+dialog.lb::backdrop{background:rgba(15,30,51,.78)}
+.lb-inner{background:#fff;border-radius:14px;overflow:hidden}
+.lb-inner img{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 2px 0;flex-wrap:wrap}
+.lb-bar p{color:#fff;font-size:.95rem;max-width:70ch}
+.lb-btns{display:flex;gap:8px}
+.lb-btns button{padding:8px 14px;font:600 .9rem var(--body);border-radius:10px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;cursor:pointer}
+.lb-btns button:hover{background:rgba(255,255,255,.2)}
+
+@media (max-width:1000px){
+  .tools{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .case-body{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .collage{max-width:520px;width:100%;margin-inline:auto}
+  .nav ul{display:none}
+  .about,.contact,.about-main{grid-template-columns:minmax(0,1fr)}
+  .photos{max-width:420px}
+  .index thead{display:none}
+  .index tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding-block:14px;border-bottom:1px solid var(--line)}
+  .index td{border:0;padding:0}
+  .index .ix-q{grid-column:1 / -1}
+  .index .ix-rows{grid-column:1;font-size:.9rem;color:var(--slate)}
+  .index .ix-tools{grid-column:2;grid-row:3}
+  .index td:first-child{grid-column:1 / -1}
+}
+@media (max-width:600px){
+  .tools,.next{grid-template-columns:minmax(0,1fr)}
+  .collage{padding-bottom:150px}
+  .query{right:3%}
+  .query{font-size:.68rem}
+  .print figcaption{font-size:.68rem;padding:3px 7px;top:8px;right:8px}
+  .btn-light{white-space:normal}
+  .mail{padding-left:12px}
+  .copy span{display:none}
+  .thumb{width:70px;height:48px}
+  .case-head{gap:14px}
+  .case-icon{width:44px;height:44px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img class="brand-photo" src="img/me/avatar.webp" alt="" width="34" height="34">Olamide Okunola</a>
+    <nav aria-label="Sections"><ul>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#toolkit">Tools</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a class="btn btn-primary btn-sm" href="mailto:okunolaolamide7@gmail.com">Email me</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="where">Data analyst in Akure, Nigeria</p>
+        <h1>I answer real questions with public data, mostly using SQL.</h1>
+        <p class="lead">I'm <b>Olamide Okunola</b>, but most people call me Mide. I study Computer Science at FUTA. I work in <b>SQL</b>, Python and Excel.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#work">See my work</a>
+          <a class="btn btn-ghost" href="https://github.com/midexol/data-analyst-portfolio" target="_blank" rel="noopener">Code on GitHub</a>
+        </div>
+      </div>
+
+      <div class="collage">
+        <figure class="hero-photo"><img src="img/me/presenting.webp" alt="Olamide presenting in front of a screen" width="720" height="399"></figure>
+        <div class="query" aria-label="Name: Olamide Okunola. Handle: midexol. City: Akure.">
+          <div class="q-bar">me.sql</div>
+          <div class="q-body" aria-hidden="true">
+            <div class="q-line"><span id="q-text"><span class="kw">select</span> name, handle, city <span class="kw">from</span> me;</span><span class="q-caret"></span></div>
+            <table class="q-result" id="q-result">
+              <thead><tr><th>name</th><th>handle</th><th>city</th></tr></thead>
+              <tbody><tr><td>Olamide Okunola</td><td><a href="https://github.com/midexol" target="_blank" rel="noopener" tabindex="-1">midexol</a></td><td>Akure</td></tr></tbody>
+            </table>
+            <p class="q-foot" id="q-foot">1 row. I'm midexol on most platforms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="work" style="padding-top:clamp(24px,4vw,48px)">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Projects</h2>
+        <p>Click a project to jump to it. The code for each one is on GitHub.</p>
+      </div>
+      <table class="index">
+        <thead><tr><th>Project</th><th>The question</th><th>Data</th><th>Tools</th></tr></thead>
+        <tbody><tr><td><a href="#lights-out" class="ix-name"><span>Lights Out</span></a></td><td class="ix-q">Why does Nigeria have so little power?</td><td class="ix-rows">5,459 country-years</td><td class="ix-tools"><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="18" height="18"><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="18" height="18"><img class="logo" src="img/tools/jupyter.svg" alt="Jupyter" title="Jupyter" width="18" height="18"></td></tr><tr><td><a href="#naira" class="ix-name"><span>Naira on the Plate</span></a></td><td class="ix-q">Is food in Nigeria really getting cheaper?</td><td class="ix-rows">68 markets, 7 years</td><td class="ix-tools"><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="18" height="18"><img class="logo" src="img/tools/excel.svg" alt="Excel" title="Excel" width="18" height="18"><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="18" height="18"></td></tr><tr><td><a href="#markets" class="ix-name"><span>Do Prediction Markets Know?</span></a></td><td class="ix-q">When Polymarket says 70%, does it happen?</td><td class="ix-rows">1,890 markets</td><td class="ix-tools"><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="18" height="18"><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="18" height="18"></td></tr><tr><td><a href="#olist" class="ix-name"><span>Late Parcels, Low Stars</span></a></td><td class="ix-q">What does a late parcel cost a store?</td><td class="ix-rows">96,203 orders</td><td class="ix-tools"><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="18" height="18"><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="18" height="18"></td></tr></tbody>
+      </table>
+      <div class="cases">
+    <article class="case" id="lights-out">
+      <header class="case-head">
+                <div>
+          <p class="case-kind">Exploration (EDA) and analysis</p>
+          <h3>Lights Out</h3>
+          <ul class="case-meta"><li>Electricity</li><li>Our World in Data</li><li>220 countries</li><li>2000 to 2024</li></ul>
+        </div>
+      </header>
+      <div class="case-body">
+        <div class="viewer" data-caps="Nigeria and Bangladesh started level in 2000. By 2024, Bangladesh had 3.6 times the grid power per person.|Same income as Bangladesh in 2022, about a quarter of the power. Each grey dot is a country.|The exploration notebook where that finding first showed up, before I&#x27;d written any SQL.|Nigeria made 2.5x more power in 2024 than in 2000, but the population grew 1.8x.|Three quarters gas, a quarter hydro, 0.3% solar.|Seventh from the bottom of 49 countries with 30 million+ people.|03_then_and_now.sql: where each country started, where it ended, and its yearly growth.">
+          <div class="stage"><div class="panel" data-i="0"><button class="shot" type="button" aria-label="Open larger"><img src="img/work/lo-nigeria_vs_bangladesh.webp" alt="Nigeria and Bangladesh started level in 2000. By 2024, Bangladesh had 3.6 times the grid power per person." loading="lazy"></button></div><div class="panel" data-i="1" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/lo-income_vs_power.webp" alt="Same income as Bangladesh in 2022, about a quarter of the power. Each grey dot is a country." loading="lazy"></button></div><div class="panel" data-i="2" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/lo-notebook.webp" alt="The exploration notebook where that finding first showed up, before I&#x27;d written any SQL." loading="lazy"></button></div><div class="panel" data-i="3" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/lo-more_power_more_people.webp" alt="Nigeria made 2.5x more power in 2024 than in 2000, but the population grew 1.8x." loading="lazy"></button></div><div class="panel" data-i="4" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/lo-power_mix.webp" alt="Three quarters gas, a quarter hydro, 0.3% solar." loading="lazy"></button></div><div class="panel" data-i="5" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/lo-lowest_countries.webp" alt="Seventh from the bottom of 49 countries with 30 million+ people." loading="lazy"></button></div><div class="panel panel-code" data-i="6" hidden><div class="code-head">03_then_and_now.sql</div><pre class="code"><code><span class="c1">-- 03_then_and_now.sql</span>
+<span class="c1">-- Where each peer started (2000), where it is now (2024), and how fast it grew.</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">ends</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span>
+<span class="w">        </span><span class="n">country</span><span class="p">,</span>
+<span class="w">        </span><span class="k">max</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">kwh_per_person</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">kwh_2000</span><span class="p">,</span>
+<span class="w">        </span><span class="k">max</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2024</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">kwh_per_person</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">kwh_2024</span><span class="p">,</span>
+<span class="w">        </span><span class="k">max</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">population</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">pop_2000</span><span class="p">,</span>
+<span class="w">        </span><span class="k">max</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2024</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">population</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">pop_2024</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">countries</span>
+<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">peers</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">country</span><span class="p">)</span>
+<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">country</span>
+<span class="p">)</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">country</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="n">kwh_2000</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">                                         </span><span class="k">AS</span><span class="w"> </span><span class="n">kwh_per_person_2000</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="n">kwh_2024</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">                                         </span><span class="k">AS</span><span class="w"> </span><span class="n">kwh_per_person_2024</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="n">kwh_2024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">kwh_2000</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">                              </span><span class="k">AS</span><span class="w"> </span><span class="n">times_bigger</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">-- average yearly growth over 24 years</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">power</span><span class="p">(</span><span class="n">kwh_2024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">kwh_2000</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">e0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">growth_pct_per_year</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="n">pop_2000</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">e6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">                                   </span><span class="k">AS</span><span class="w"> </span><span class="n">population_2000_m</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="n">pop_2024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">e6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">                                   </span><span class="k">AS</span><span class="w"> </span><span class="n">population_2024_m</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ends</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">kwh_per_person_2024</span><span class="p">;</span>
+</code></pre></div></div>
+          <p class="caption">Nigeria and Bangladesh started level in 2000. By 2024, Bangladesh had 3.6 times the grid power per person.</p>
+          <div class="thumbs" role="group" aria-label="Screenshots from Lights Out"><button class="thumb" type="button" data-i="0" aria-label="Show image 1"><img src="img/work/lo-nigeria_vs_bangladesh.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="1" aria-label="Show image 2"><img src="img/work/lo-income_vs_power.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="2" aria-label="Show image 3"><img src="img/work/lo-notebook.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="3" aria-label="Show image 4"><img src="img/work/lo-more_power_more_people.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="4" aria-label="Show image 5"><img src="img/work/lo-power_mix.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="5" aria-label="Show image 6"><img src="img/work/lo-lowest_countries.webp" alt="" loading="lazy"></button><button class="thumb thumb-code" type="button" data-i="6" aria-label="Show the SQL"><span>SQL</span></button></div>
+        </div>
+        <div class="story">
+          <h4>The question</h4><p>In 2000, Nigeria and Bangladesh both made about <b>117 kWh</b> of grid power per person. By 2024, Bangladesh made <b>586</b> and Nigeria made <b>161</b>. Is that just because Nigeria is poorer?</p>
+          <h4>What I found</h4><p>No. In 2022 both had about the same income per person, around <b>$5,080</b>. Countries at that income make about <b>620 kWh</b> on average. Bangladesh makes 604. Nigeria makes <b>170</b>, the sixth lowest of 154 countries. Nigeria's output grew <b>2.5x</b> since 2000, but its population grew <b>1.8x</b>.</p>
+          <h4>What it means</h4><p>Income doesn't explain the gap. Power has to grow much faster than the population, and solar is only <b>0.3%</b> of the grid.</p>
+          <ul class="case-tools" aria-label="Tools used"><li><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="16" height="16"><span>SQL</span></li><li><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="16" height="16"><span>Python</span></li><li><img class="logo" src="img/tools/jupyter.svg" alt="Jupyter" title="Jupyter" width="16" height="16"><span>Jupyter</span></li></ul>
+          <div class="case-links"><a class="link" href="https://github.com/midexol/data-analyst-portfolio/tree/main/03-lights-out" target="_blank" rel="noopener">Write-up</a><a class="link" href="https://github.com/midexol/data-analyst-portfolio/tree/main/03-lights-out/notebooks/explore.ipynb" target="_blank" rel="noopener">Notebook</a><a class="link" href="https://github.com/midexol/data-analyst-portfolio/tree/main/03-lights-out/sql" target="_blank" rel="noopener">SQL</a></div>
+        </div>
+      </div>
+    </article>
+    <article class="case" id="naira">
+      <header class="case-head">
+                <div>
+          <p class="case-kind">Data cleaning, analysis and an Excel workbook</p>
+          <h3>Naira on the Plate</h3>
+          <ul class="case-meta"><li>Nigeria food prices</li><li>World Bank</li><li>68 markets</li><li>2019 to 2026</li></ul>
+        </div>
+      </header>
+      <div class="case-body">
+        <div class="viewer" data-caps="Staples came back down after their 2024 peak. Meat, eggs and milk stayed near the top.|The Excel version: pick any food from a dropdown and its stats and chart update. Every number is a formula.|Food inflation hit 112% in June 2024, then turned negative in August 2025.|How far each food has fallen from its peak. Beans halved. Beef barely moved.|Excel: every food&#x27;s Jan 2023 price, peak and fall, built with INDEX, MATCH and MAX.|The same plate costs 25% more in the South South than the North West.|03_commodity_change.sql: each food&#x27;s price in Jan 2023, its peak, and where it is now.">
+          <div class="stage"><div class="panel" data-i="0"><button class="shot" type="button" aria-label="Open larger"><img src="img/work/nap-grains_vs_protein.webp" alt="Staples came back down after their 2024 peak. Meat, eggs and milk stayed near the top." loading="lazy"></button></div><div class="panel" data-i="1" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/excel-pick-a-food.webp" alt="The Excel version: pick any food from a dropdown and its stats and chart update. Every number is a formula." loading="lazy"></button></div><div class="panel" data-i="2" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/nap-food_inflation.webp" alt="Food inflation hit 112% in June 2024, then turned negative in August 2025." loading="lazy"></button></div><div class="panel" data-i="3" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/nap-fall_from_peak.webp" alt="How far each food has fallen from its peak. Beans halved. Beef barely moved." loading="lazy"></button></div><div class="panel" data-i="4" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/excel-peak-to-now.webp" alt="Excel: every food&#x27;s Jan 2023 price, peak and fall, built with INDEX, MATCH and MAX." loading="lazy"></button></div><div class="panel" data-i="5" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/nap-plate_by_zone.webp" alt="The same plate costs 25% more in the South South than the North West." loading="lazy"></button></div><div class="panel panel-code" data-i="6" hidden><div class="code-head">03_commodity_change.sql</div><pre class="code"><code><span class="c1">-- 03_commodity_change.sql</span>
+<span class="c1">-- For each food: price in Jan 2023, its peak since then, and where it is now (Jul 2026).</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">since_2023</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">national_long</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="s1">'2023-01-01'</span>
+<span class="p">),</span>
+<span class="n">peaks</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="c1">-- the month each food hit its highest price (the earliest one, if it hit it twice)</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">food</span><span class="p">,</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">peak_month</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">food</span><span class="p">,</span><span class="w"> </span><span class="k">month</span><span class="p">,</span><span class="w"> </span><span class="n">row_number</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">food</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="w"> </span><span class="k">month</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">rn</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">since_2023</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ranked</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">rn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">),</span>
+<span class="n">per_food</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span>
+<span class="w">        </span><span class="n">s</span><span class="p">.</span><span class="n">food</span><span class="p">,</span>
+<span class="w">        </span><span class="k">max</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="k">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="s1">'2023-01-01'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">price</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">jan_2023</span><span class="p">,</span>
+<span class="w">        </span><span class="k">max</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">price</span><span class="p">)</span><span class="w">                                                 </span><span class="k">AS</span><span class="w"> </span><span class="n">peak</span><span class="p">,</span>
+<span class="w">        </span><span class="k">max</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">peak_month</span><span class="p">)</span><span class="w">                                            </span><span class="k">AS</span><span class="w"> </span><span class="n">peak_month</span><span class="p">,</span>
+<span class="w">        </span><span class="k">max</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="k">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="s1">'2026-07-01'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">price</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">jul_2026</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">since_2023</span><span class="w"> </span><span class="n">s</span>
+<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">peaks</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">food</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">food</span>
+<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">food</span>
+<span class="p">)</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">label</span><span class="w">                                                  </span><span class="k">AS</span><span class="w"> </span><span class="n">food</span><span class="p">,</span>
+<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">food</span><span class="w">                                                   </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="k">column</span><span class="o">`</span><span class="p">,</span>
+<span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">unit</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">jan_2023</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">SIGNED</span><span class="p">)</span><span class="w">                          </span><span class="k">AS</span><span class="w"> </span><span class="n">price_jan_2023</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">peak</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">SIGNED</span><span class="p">)</span><span class="w">                              </span><span class="k">AS</span><span class="w"> </span><span class="n">peak_price</span><span class="p">,</span>
+<span class="w">    </span><span class="n">DATE_FORMAT</span><span class="p">(</span><span class="n">peak_month</span><span class="p">,</span><span class="w"> </span><span class="s1">'%Y-%m'</span><span class="p">)</span><span class="w">                         </span><span class="k">AS</span><span class="w"> </span><span class="n">peak_month</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">jul_2026</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">SIGNED</span><span class="p">)</span><span class="w">                          </span><span class="k">AS</span><span class="w"> </span><span class="n">price_jul_2026</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">peak</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">jan_2023</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">SIGNED</span><span class="p">)</span><span class="w">       </span><span class="k">AS</span><span class="w"> </span><span class="n">rise_to_peak_pct</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">jul_2026</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">peak</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">SIGNED</span><span class="p">)</span><span class="w">       </span><span class="k">AS</span><span class="w"> </span><span class="n">peak_to_now_pct</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">jul_2026</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">jan_2023</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">SIGNED</span><span class="p">)</span><span class="w">   </span><span class="k">AS</span><span class="w"> </span><span class="n">jan_2023_to_now_pct</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">per_food</span><span class="w"> </span><span class="n">p</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">foods</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">food</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">food</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">jul_2026</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">peak</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">label</span><span class="p">;</span>
+</code></pre></div></div>
+          <p class="caption">Staples came back down after their 2024 peak. Meat, eggs and milk stayed near the top.</p>
+          <div class="thumbs" role="group" aria-label="Screenshots from Naira on the Plate"><button class="thumb" type="button" data-i="0" aria-label="Show image 1"><img src="img/work/nap-grains_vs_protein.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="1" aria-label="Show image 2"><img src="img/work/excel-pick-a-food.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="2" aria-label="Show image 3"><img src="img/work/nap-food_inflation.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="3" aria-label="Show image 4"><img src="img/work/nap-fall_from_peak.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="4" aria-label="Show image 5"><img src="img/work/excel-peak-to-now.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="5" aria-label="Show image 6"><img src="img/work/nap-plate_by_zone.webp" alt="" loading="lazy"></button><button class="thumb thumb-code" type="button" data-i="6" aria-label="Show the SQL"><span>SQL</span></button></div>
+        </div>
+        <div class="story">
+          <h4>The question</h4><p>How much did food prices in Nigeria rise, and are they really coming down?</p>
+          <h4>What I found</h4><p>Food inflation peaked at <b>112%</b> in June 2024. Prices have been falling since August 2025, but they're still about <b>2.5x</b> early 2023. Rice, beans and garri are about <b>35%</b> below their peak. Meat, eggs and milk are only <b>4%</b> below.</p>
+          <h4>What it means</h4><p>Staples are getting cheaper. Protein isn't. The same plate of rice, beans and garri costs <b>₦4,011</b> in the South South and <b>₦3,208</b> in the North West.</p>
+          <ul class="case-tools" aria-label="Tools used"><li><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="16" height="16"><span>SQL</span></li><li><img class="logo" src="img/tools/excel.svg" alt="Excel" title="Excel" width="16" height="16"><span>Excel</span></li><li><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="16" height="16"><span>Python</span></li></ul>
+          <div class="case-links"><a class="link" href="https://github.com/midexol/data-analyst-portfolio/tree/main/01-nigeria-food-prices" target="_blank" rel="noopener">Write-up</a><a class="link" href="https://github.com/midexol/data-analyst-portfolio/tree/main/01-nigeria-food-prices/sql" target="_blank" rel="noopener">SQL</a><a class="link" href="https://github.com/midexol/data-analyst-portfolio/raw/main/01-nigeria-food-prices/excel/naira_on_the_plate.xlsx" target="_blank" rel="noopener">Excel workbook</a></div>
+        </div>
+      </div>
+    </article>
+    <article class="case" id="markets">
+      <header class="case-head">
+                <div>
+          <p class="case-kind">API data pipeline and forecast scoring</p>
+          <h3>Do Prediction Markets Know?</h3>
+          <ul class="case-meta"><li>Polymarket</li><li>1,890 settled markets</li><li>4 topics</li><li>2024 to 2026</li></ul>
+        </div>
+      </header>
+      <div class="case-body">
+        <div class="viewer" data-caps="Each dot is a price range. On the dashed line means the price was exactly right. The underdogs sit well above it.|Bets priced at 10 to 40% came true 35% of the time. Every other range was close to its price.|The same 1,347 markets scored at three dates. The crowd&#x27;s error halves in the last month.|On the close calls, economy markets were the most accurate and politics the least.|02_calibration.sql: how often YES happened in each price range, with a 95% range worked out in SQL.">
+          <div class="stage"><div class="panel" data-i="0"><button class="shot" type="button" aria-label="Open larger"><img src="img/work/pm-calibration.webp" alt="Each dot is a price range. On the dashed line means the price was exactly right. The underdogs sit well above it." loading="lazy"></button></div><div class="panel" data-i="1" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/pm-underdogs.webp" alt="Bets priced at 10 to 40% came true 35% of the time. Every other range was close to its price." loading="lazy"></button></div><div class="panel" data-i="2" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/pm-closer_is_sharper.webp" alt="The same 1,347 markets scored at three dates. The crowd&#x27;s error halves in the last month." loading="lazy"></button></div><div class="panel" data-i="3" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/pm-by_topic.webp" alt="On the close calls, economy markets were the most accurate and politics the least." loading="lazy"></button></div><div class="panel panel-code" data-i="4" hidden><div class="code-head">02_calibration.sql</div><pre class="code"><code><span class="c1">-- 02_calibration.sql</span>
+<span class="c1">-- When the price said X%, how often did YES actually happen? With a 95% range (Wilson interval).</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">horizon_days</span><span class="p">,</span><span class="w"> </span><span class="n">bucket</span><span class="p">,</span>
+<span class="w">           </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">             </span><span class="k">AS</span><span class="w"> </span><span class="n">markets</span><span class="p">,</span>
+<span class="w">           </span><span class="k">avg</span><span class="p">(</span><span class="n">price_yes</span><span class="p">)</span><span class="w">       </span><span class="k">AS</span><span class="w"> </span><span class="n">avg_price</span><span class="p">,</span>
+<span class="w">           </span><span class="k">avg</span><span class="p">(</span><span class="n">yes_won</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="n">e0</span><span class="p">)</span><span class="w">   </span><span class="k">AS</span><span class="w"> </span><span class="n">yes_rate</span><span class="w">      </span><span class="c1">-- * 1e0 keeps full precision (avg of whole numbers is cut to 4 places)</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">forecasts</span>
+<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">horizon_days</span><span class="p">,</span><span class="w"> </span><span class="n">bucket</span>
+<span class="p">)</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">horizon_days</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">bucket</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s1">' to '</span><span class="p">,</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s1">'%'</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">price_range</span><span class="p">,</span>
+<span class="w">    </span><span class="n">markets</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">avg_price</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">avg_price_pct</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">yes_rate</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">happened_pct</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">yes_rate</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">POWER</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">96</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">markets</span><span class="p">)</span>
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">96</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">yes_rate</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">yes_rate</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">markets</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">POWER</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">96</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">POWER</span><span class="p">(</span><span class="n">markets</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))))</span>
+<span class="w">        </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">POWER</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">96</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">markets</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">low_pct</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">yes_rate</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">POWER</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">96</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">markets</span><span class="p">)</span>
+<span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">96</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">yes_rate</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">yes_rate</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">markets</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">POWER</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">96</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">POWER</span><span class="p">(</span><span class="n">markets</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))))</span>
+<span class="w">        </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">POWER</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">96</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">markets</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">high_pct</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">b</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">horizon_days</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="w"> </span><span class="n">bucket</span><span class="p">;</span>
+</code></pre></div></div>
+          <p class="caption">Each dot is a price range. On the dashed line means the price was exactly right. The underdogs sit well above it.</p>
+          <div class="thumbs" role="group" aria-label="Screenshots from Do Prediction Markets Know?"><button class="thumb" type="button" data-i="0" aria-label="Show image 1"><img src="img/work/pm-calibration.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="1" aria-label="Show image 2"><img src="img/work/pm-underdogs.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="2" aria-label="Show image 3"><img src="img/work/pm-closer_is_sharper.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="3" aria-label="Show image 4"><img src="img/work/pm-by_topic.webp" alt="" loading="lazy"></button><button class="thumb thumb-code" type="button" data-i="4" aria-label="Show the SQL"><span>SQL</span></button></div>
+        </div>
+        <div class="story">
+          <h4>The question</h4><p>When Polymarket prices something at 70%, does it happen about 70% of the time?</p>
+          <h4>What I found</h4><p>Mostly, yes. On the same 1,347 markets, the error score drops from <b>0.074</b> a month out to <b>0.038</b> the day before. Underdogs are the exception. Bets priced at 10 to 40% happened <b>35%</b> of the time, not the <b>23%</b> the price suggested.</p>
+          <h4>What it means</h4><p>The price is a good guide, except for underdogs. Politics was the weakest topic. On close calls it scored <b>0.249</b>, about the same as guessing 50% every time.</p>
+          <ul class="case-tools" aria-label="Tools used"><li><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="16" height="16"><span>SQL</span></li><li><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="16" height="16"><span>Python</span></li></ul>
+          <div class="case-links"><a class="link" href="https://github.com/midexol/data-analyst-portfolio/tree/main/02-polymarket-calibration" target="_blank" rel="noopener">Write-up</a><a class="link" href="https://github.com/midexol/data-analyst-portfolio/tree/main/02-polymarket-calibration/sql" target="_blank" rel="noopener">SQL</a></div>
+        </div>
+      </div>
+    </article>
+    <article class="case" id="olist">
+      <header class="case-head">
+                <div>
+          <p class="case-kind">Full analysis with significance tests</p>
+          <h3>Late Parcels, Low Stars</h3>
+          <ul class="case-meta"><li>Brazilian e-commerce</li><li>Olist</li><li>96,203 orders</li><li>2017 to 2018</li></ul>
+        </div>
+      </header>
+      <div class="case-body">
+        <div class="viewer" data-caps="Reviews collapse once a parcel is a few days late.|A late first order means fewer comebacks: 3.02% vs 4.04% (p = 0.003).|Late deliveries spike after Black Friday and again in February and March 2018.|Late rate by state. Rio has 12.8% of orders but 22.9% of the late ones.|A quarter of customers bring in over half the revenue.|06_repeat_purchase.sql: did a late first order stop people coming back? Uses a window function to find each customer&#x27;s first order.">
+          <div class="stage"><div class="panel" data-i="0"><button class="shot" type="button" aria-label="Open larger"><img src="img/work/olist-reviews_by_delay.webp" alt="Reviews collapse once a parcel is a few days late." loading="lazy"></button></div><div class="panel" data-i="1" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/olist-repeat_by_first_experience.webp" alt="A late first order means fewer comebacks: 3.02% vs 4.04% (p = 0.003)." loading="lazy"></button></div><div class="panel" data-i="2" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/olist-late_rate_by_month.webp" alt="Late deliveries spike after Black Friday and again in February and March 2018." loading="lazy"></button></div><div class="panel" data-i="3" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/olist-late_rate_by_state.webp" alt="Late rate by state. Rio has 12.8% of orders but 22.9% of the late ones." loading="lazy"></button></div><div class="panel" data-i="4" hidden><button class="shot" type="button" aria-label="Open larger"><img src="img/work/olist-rfm_customers_vs_revenue.webp" alt="A quarter of customers bring in over half the revenue." loading="lazy"></button></div><div class="panel panel-code" data-i="5" hidden><div class="code-head">06_repeat_purchase.sql</div><pre class="code"><code><span class="c1">-- 06_repeat_purchase.sql</span>
+<span class="c1">-- Does a late FIRST delivery make a customer less likely to order again?</span>
+<span class="c1">-- Only customers whose first order was before 2018-03-01 are included, so everyone</span>
+<span class="c1">-- has at least 6 months in which a second order could appear.</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">ranked</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">customer_unique_id</span><span class="p">,</span><span class="w"> </span><span class="n">order_id</span><span class="p">,</span><span class="w"> </span><span class="n">purchased_at</span><span class="p">,</span><span class="w"> </span><span class="n">is_late</span><span class="p">,</span><span class="w"> </span><span class="n">review_score</span><span class="p">,</span>
+<span class="w">           </span><span class="n">row_number</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">customer_unique_id</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">purchased_at</span><span class="p">,</span><span class="w"> </span><span class="n">order_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">n</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">fct_orders</span>
+<span class="p">),</span>
+<span class="n">firsts</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">customer_unique_id</span><span class="p">,</span><span class="w"> </span><span class="n">purchased_at</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">first_at</span><span class="p">,</span><span class="w"> </span><span class="n">is_late</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">first_late</span><span class="p">,</span>
+<span class="w">           </span><span class="n">review_score</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">first_review</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">ranked</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">),</span>
+<span class="n">repeaters</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">customer_unique_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ranked</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span>
+<span class="p">)</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">first_late</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'First order late'</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'First order on time'</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">first_experience</span><span class="p">,</span>
+<span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">                                                          </span><span class="k">AS</span><span class="w"> </span><span class="n">customers</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">customer_unique_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">repeat_customers</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">customer_unique_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="n">e0</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">pct_repeat</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">firsts</span><span class="w"> </span><span class="n">f</span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">repeaters</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">customer_unique_id</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">first_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="s1">'2018-03-01 00:00:00'</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+          <p class="caption">Reviews collapse once a parcel is a few days late.</p>
+          <div class="thumbs" role="group" aria-label="Screenshots from Late Parcels, Low Stars"><button class="thumb" type="button" data-i="0" aria-label="Show image 1"><img src="img/work/olist-reviews_by_delay.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="1" aria-label="Show image 2"><img src="img/work/olist-repeat_by_first_experience.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="2" aria-label="Show image 3"><img src="img/work/olist-late_rate_by_month.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="3" aria-label="Show image 4"><img src="img/work/olist-late_rate_by_state.webp" alt="" loading="lazy"></button><button class="thumb" type="button" data-i="4" aria-label="Show image 5"><img src="img/work/olist-rfm_customers_vs_revenue.webp" alt="" loading="lazy"></button><button class="thumb thumb-code" type="button" data-i="5" aria-label="Show the SQL"><span>SQL</span></button></div>
+        </div>
+        <div class="story">
+          <h4>The question</h4><p>How much does a late delivery hurt reviews and repeat orders? I used <b>96,203</b> orders from Olist, a Brazilian marketplace.</p>
+          <h4>What I found</h4><p>On-time orders average <b>4.28</b> stars. Late ones average <b>2.26</b>. Even 1 to 3 days late triples the share of 1 and 2 star reviews. First-time buyers with a late order were <b>25%</b> less likely to order again.</p>
+          <h4>What it means</h4><p>Just <b>98</b> of 2,945 sellers cause half of all late orders. Watch those sellers, and give first-time buyers delivery dates you can actually hit.</p>
+          <ul class="case-tools" aria-label="Tools used"><li><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="16" height="16"><span>SQL</span></li><li><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="16" height="16"><span>Python</span></li></ul>
+          <div class="case-links"><a class="link" href="https://github.com/midexol/data-analyst-portfolio/tree/main/04-olist-delivery-reviews" target="_blank" rel="noopener">Write-up</a><a class="link" href="https://github.com/midexol/data-analyst-portfolio/tree/main/04-olist-delivery-reviews/sql" target="_blank" rel="noopener">SQL</a></div>
+        </div>
+      </div>
+    </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="toolkit">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Tools</h2>
+        <p>What I use, and what I use it for.</p>
+      </div>
+      <ul class="tools"><li class="tool"><div class="tool-logos"><img src="img/tools/mysql.svg" alt="" width="40" height="40"></div><div><h3>SQL</h3><p>Most of my work. Cleaning, joins, window functions and cohorts. I use MySQL.</p></div></li><li class="tool"><div class="tool-logos"><img src="img/tools/excel.svg" alt="" width="40" height="40"></div><div><h3>Excel</h3><p>Workbooks with lookups, SUMIFS, dropdowns and charts that update.</p></div></li><li class="tool"><div class="tool-logos"><img src="img/tools/python.svg" alt="" width="40" height="40"><img src="img/tools/pandas.svg" alt="" width="40" height="40"></div><div><h3>Python and pandas</h3><p>Charts, stats tests, quick checks and pulling data from APIs.</p></div></li><li class="tool"><div class="tool-logos"><img src="img/tools/jupyter.svg" alt="" width="40" height="40"></div><div><h3>Jupyter</h3><p>Exploring a new dataset before I decide what to ask.</p></div></li><li class="tool"><div class="tool-logos"><img src="img/tools/powerbi.svg" alt="" width="40" height="40"></div><div><h3>Power BI</h3><p>Interactive dashboards.</p></div></li><li class="tool"><div class="tool-logos"><img src="img/tools/claude.svg" alt="" width="40" height="40"><img src="img/tools/openai.svg" alt="" width="40" height="40"></div><div><h3>AI tools</h3><p>I use Claude and ChatGPT to draft queries, debug code and review my write-ups faster. I check every number myself.</p></div></li></ul>
+    </div>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="wrap about">
+      <div class="photos"><figure class="portrait"><img src="img/me/headshot.webp" alt="Olamide Okunola" width="536" height="670"></figure>
+      <img class="candid" src="img/me/desk.webp" alt="Olamide talking at a desk with a laptop" loading="lazy" width="720" height="356"></div>
+      <div class="about-main">
+        <div class="about-text">
+          <div class="sec-head" style="margin-bottom:24px"><h2>About me</h2></div>
+          <p class="big">I'm a data analyst and Computer Science student at the Federal University of Technology, Akure.</p>
+          <p>All my projects use public data, so anyone can rerun the code and check the numbers.</p>
+          <p>I also have software development skills, mostly building payment apps and trading bots.</p>
+        </div>
+        <aside class="facts">
+          <ul>
+            <li><div><b>Akure, Nigeria</b><span>Open to remote work</span></div></li>
+            <li><div><b>Computer Science, FUTA</b><span>Federal University of Technology, Akure</span></div></li>
+          </ul>
+          <h3>Outside the data</h3>
+          <ul><li><div><b>Content Lead</b><span>Google Developer Groups on Campus (GDGoC), FUTA</span></div></li><li><div><b>Welfare Director</b><span>Department of Computer Science, FUTA</span></div></li><li><div><b>Millennium Fellow</b><span>Millennium Fellowship, Class of 2024</span></div></li></ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="next" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><h2>In progress</h2></div>
+      <ul class="next"><li><div><h3>Fintech app reviews</h3><p>Over 200,000 Play Store reviews of OPay, Moniepoint, Kuda and PalmPay. What people complain about most.</p><p class="next-kind">Text analysis</p></div></li></ul>
+    </div>
+  </section>
+
+  <section class="sec" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2>Get in touch</h2>
+          <p>I'm open to analyst roles and projects, remote or in Nigeria. Email is the fastest way to reach me.</p>
+        </div>
+        <div class="mail-box">
+          <div class="mail"><a id="mail" href="mailto:okunolaolamide7@gmail.com">okunolaolamide7@gmail.com</a><button class="copy" type="button" id="copy"><span>Copy</span></button></div>
+          <a class="btn btn-light" href="https://github.com/midexol" target="_blank" rel="noopener">github.com/midexol</a>
+        </div>
+      </div>
+      <footer><span>© 2026 Olamide Okunola</span><a href="https://github.com/midexol/data-analyst-portfolio" target="_blank" rel="noopener">See the code for everything here on GitHub</a></footer>
+    </div>
+  </section>
+</main>
+
+<dialog class="lb" id="lb" aria-label="Screenshot">
+  <div class="lb-inner"><img id="lb-img" alt=""></div>
+  <div class="lb-bar"><p id="lb-cap"></p><div class="lb-btns">
+    <button type="button" id="lb-prev">Previous</button>
+    <button type="button" id="lb-next">Next</button>
+    <button type="button" id="lb-close">Close</button>
+  </div></div>
+</dialog>
+
+<script>
+(function(){
+  /* screenshot viewer in each case study */
+  document.querySelectorAll(".viewer").forEach(v => {
+    const caps = v.dataset.caps.split("|"), panels = [...v.querySelectorAll(".panel")], thumbs = [...v.querySelectorAll(".thumb")], cap = v.querySelector(".caption");
+    const show = i => {
+      panels.forEach(p => p.hidden = +p.dataset.i !== i);
+      thumbs.forEach(t => t.setAttribute("aria-current", +t.dataset.i === i ? "true" : "false"));
+      cap.textContent = caps[i];
+    };
+    thumbs.forEach(t => t.addEventListener("click", () => show(+t.dataset.i)));
+    show(0);
+  });
+
+  /* lightbox */
+  const lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img"), lbCap = document.getElementById("lb-cap");
+  let list = [], at = 0;
+  const render = () => { lbImg.src = list[at].img.src; lbImg.alt = list[at].cap; lbCap.textContent = list[at].cap; };
+  const open = viewer => {
+    const caps = viewer.dataset.caps.split("|");
+    list = [...viewer.querySelectorAll(".panel")].map((p, k) => ({ img: p.querySelector("img"), cap: caps[k] })).filter(x => x.img);
+    at = Math.max(0, list.findIndex(x => x.img === viewer.querySelector(".panel:not([hidden]) img")));
+    render();
+    if (lb.showModal) lb.showModal(); else lb.setAttribute("open", "");
+  };
+  const step = d => { at = (at + d + list.length) % list.length; render(); };
+  const close = () => lb.close ? lb.close() : lb.removeAttribute("open");
+  document.querySelectorAll(".shot").forEach(b => b.addEventListener("click", () => open(b.closest(".viewer"))));
+  document.getElementById("lb-prev").addEventListener("click", () => step(-1));
+  document.getElementById("lb-next").addEventListener("click", () => step(1));
+  document.getElementById("lb-close").addEventListener("click", close);
+  lb.addEventListener("click", e => { if (e.target === lb) close(); });
+  lb.addEventListener("keydown", e => { if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); });
+
+  /* nav: border once scrolled, highlight the current section */
+  const nav = document.getElementById("nav");
+  const onScroll = () => nav.classList.toggle("scrolled", scrollY > 8);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  const links = [...document.querySelectorAll(".nav ul a")];
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+    }), { rootMargin: "-40% 0px -55% 0px" });
+    ["work", "toolkit", "about", "contact"].forEach(id => io.observe(document.getElementById(id)));
+  }
+
+  /* the one moment of motion: the query types itself, then the row appears */
+  const qt = document.getElementById("q-text"), caret = document.querySelector(".q-caret"), res = document.getElementById("q-result"), foot = document.getElementById("q-foot");
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const html = qt.innerHTML, plain = qt.textContent; let i = 0;
+    qt.textContent = ""; res.classList.add("q-hide"); foot.classList.add("q-hide"); caret.classList.add("on");
+    setTimeout(function type() {
+      qt.textContent = plain.slice(0, ++i);
+      if (i < plain.length) setTimeout(type, 36 + Math.random() * 40);
+      else { qt.innerHTML = html; setTimeout(() => { res.classList.remove("q-hide"); setTimeout(() => foot.classList.remove("q-hide"), 250); setTimeout(() => caret.classList.remove("on"), 1600); }, 300); }
+    }, 600);
+  }
+
+  /* copy email */
+  const c = document.getElementById("copy"), label = c.querySelector("span");
+  c.addEventListener("click", () => {
+    const ok = () => { label.textContent = "Copied"; setTimeout(() => label.textContent = "Copy", 1500); };
+    const sel = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); const g = getSelection(); g.removeAllRanges(); g.addRange(r); };
+    try { navigator.clipboard.writeText("okunolaolamide7@gmail.com").then(ok, sel); } catch (e) { sel(); }
+  });
+})();
+</script>
+</body>
+</html>
