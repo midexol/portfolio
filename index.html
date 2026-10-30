@@ -4,313 +4,171 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Olamide Okunola, data analyst</title>
-<meta name="description" content="Data analyst in Akure, Nigeria. Projects in SQL (MySQL), Python and Excel using public data.">
+<meta name="description" content="Data analyst. Projects in SQL (MySQL), Python and Excel using public data.">
 <meta property="og:title" content="Olamide Okunola, data analyst">
 <meta property="og:description" content="Four data projects in SQL, Python and Excel, with the code on GitHub.">
 <link rel="icon" href="img/me/avatar.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap">
 <style>
-/* White paper, navy ink, one working blue. Light only, by request. */
 :root{
-  --paper:#FFFFFF; --ink:#0F1E33; --slate:#5B6B82; --soft:#8A98AD; --line:#DDE6F3;
-  --blue:#143F9E; --blue-deep:#0D2C73; --sky:#EEF4FE; --sky-2:#DCE8FC;
-  --code-bg:#F6F9FE; --shadow:0 1px 2px rgba(15,30,51,.06),0 12px 32px -12px rgba(20,63,158,.22);
-  --display:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;
+  --paper:#FFFFFF; --ink:#0F1E33; --slate:#5B6B82; --soft:#94A1B4; --line:#E6EBF2;
+  --blue:#143F9E; --code-bg:#F7F9FC;
   --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
   color-scheme:light;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4{font-family:var(--display);margin:0;line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.2;letter-spacing:-.01em}
 p{margin:0}
-a{color:inherit}
+a{color:var(--blue);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
 img{max-width:100%}
-.ic{flex:none;display:block}
-.ic path,.ic circle,.ic rect{vector-effect:non-scaling-stroke}
-:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px;border-radius:6px}
-.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{max-width:720px;margin:0 auto;padding-inline:20px}
 
-/* ---------- nav ---------- */
-.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
-.nav.scrolled{border-bottom-color:var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
-.brand-photo{width:34px;height:34px;border-radius:50%;object-fit:cover;display:block}
-.mark{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--blue);color:#fff;font-size:.8rem;font-weight:800;letter-spacing:.02em}
-.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
-.nav ul a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--slate);font-weight:500;font-size:.95rem}
-.nav ul a:hover,.nav ul a.on{color:var(--blue);background:var(--sky)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font:600 .95rem var(--body);text-decoration:none;border:1.5px solid transparent;cursor:pointer;white-space:nowrap}
-.btn-primary{background:var(--blue);color:#fff}
-.btn-primary:hover{background:var(--blue-deep)}
-.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
-.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-.btn-sm{padding:8px 14px;font-size:.9rem}
+/* nav */
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:28px}
+.brand{color:var(--ink);text-decoration:none;font-weight:600}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:.95rem}
+.nav ul a{color:var(--slate);text-decoration:none}
+.nav ul a:hover{color:var(--ink)}
 
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;padding-block:clamp(40px,7vw,88px) clamp(48px,6vw,72px)}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;
-  background-image:linear-gradient(var(--sky) 1px,transparent 1px),linear-gradient(90deg,var(--sky) 1px,transparent 1px);
-  background-size:32px 32px;mask-image:radial-gradient(ellipse 70% 80% at 75% 40%,#000 25%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 80% at 75% 40%,#000 25%,transparent 75%)}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:center}
-.where{color:var(--blue);font-weight:600;font-size:.95rem}
-.hero h1{font-size:clamp(2.15rem,4.6vw,3.6rem);font-weight:700;letter-spacing:-.03em;margin-top:18px;line-height:1.04}
-.hero .lead{margin-top:22px;color:var(--slate);font-size:1.15rem;max-width:34em}
-.hero .lead b{color:var(--ink);font-weight:600}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+/* hero */
+.hero{padding-block:48px 72px}
+.me{display:flex;align-items:center;gap:16px}
+.me img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.me p{color:var(--slate);font-size:.95rem}
+.me b{display:block;color:var(--ink);font-weight:600;font-size:1rem}
+.hero h1{font-size:clamp(1.7rem,3.6vw,2.3rem);margin-top:36px;max-width:22em;letter-spacing:-.02em}
+.hero .lead{margin-top:16px;color:var(--slate);max-width:36em}
+.hero .links{display:flex;gap:22px;margin-top:22px;font-weight:500}
+.hero-photo{margin:48px 0 0}
+.hero-photo img{display:block;width:100%;height:auto;border-radius:10px}
 
-/* the collage: real screenshots, stacked like printouts on a desk */
-.collage{position:relative;padding-bottom:150px}
-.hero-photo{margin:0;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:6px solid #fff;outline:1px solid var(--line)}
-.hero-photo img{display:block;width:100%;height:auto}
-.print{position:absolute;margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px;box-shadow:var(--shadow);overflow:hidden}
-.print img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:7px}
-.print figcaption{position:absolute;right:12px;top:12px;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:8px;padding:4px 9px;font-size:.78rem;font-weight:600;color:var(--ink)}
-.print figcaption .ic{color:var(--blue)}
-.p1{top:0;right:0;width:78%;height:52%;transform:rotate(2deg)}
-.p2{top:30%;left:0;width:64%;height:44%;transform:rotate(-3deg)}
-.p3{bottom:0;right:4%;width:58%;height:40%;transform:rotate(1.2deg)}
-.query{position:absolute;right:-4%;bottom:0;z-index:3;width:min(92%,330px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);font-family:var(--mono);font-size:.74rem;overflow:hidden}
-.q-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--sky);color:var(--blue-deep);font-family:var(--body);font-weight:600;font-size:.78rem;border-bottom:1px solid var(--line)}
-.q-body{padding:12px 14px 12px}
-.q-line{white-space:nowrap;overflow:hidden;color:var(--ink)}
-.q-line .kw{color:var(--blue);font-weight:500}
-.q-caret{display:inline-block;width:6px;height:1em;background:var(--blue);vertical-align:-2px;margin-left:1px;opacity:0}
-.q-caret.on{opacity:1;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.q-result{border-collapse:collapse;width:100%;margin-top:10px;font:inherit}
-.q-result th{text-align:left;font-weight:400;color:var(--soft);padding:0 10px 4px 0;border-bottom:1px solid var(--line)}
-.q-result td{padding:6px 10px 0 0;white-space:nowrap}
-.q-result a{color:var(--blue);text-decoration:none;font-weight:500}
-.q-foot{margin-top:8px;color:var(--soft);font-family:var(--body);font-size:.76rem}
-.q-result,.q-foot{transition:opacity .35s ease}
-.q-hide{opacity:0}
+/* sections */
+section{scroll-margin-top:24px}
+.sec{padding-block:64px;border-top:1px solid var(--line)}
+.sec>.wrap>h2{font-size:.95rem;color:var(--soft);font-weight:500;letter-spacing:0;margin-bottom:32px}
 
-/* ---------- sections ---------- */
-section{scroll-margin-top:80px}
-.sec{padding-block:clamp(56px,8vw,96px)}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px}
-.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700;letter-spacing:-.03em}
-.sec-head p{color:var(--slate);max-width:36em}
-
-/* project index: a dataset listing */
-.index{width:100%;border-collapse:collapse;font-size:.98rem}
-.index th{text-align:left;font-weight:500;color:var(--soft);font-size:.86rem;padding:0 16px 10px 0;border-bottom:1.5px solid var(--ink)}
-.index td{padding:16px 16px 16px 0;border-bottom:1px solid var(--line);vertical-align:middle}
-.index tr:hover td{background:linear-gradient(var(--sky),var(--sky))}
-.ix-name{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1.12rem;text-decoration:none;letter-spacing:-.01em}
-.ix-name .ic{color:var(--blue)}
-.ix-name:hover span{color:var(--blue);text-decoration:underline;text-underline-offset:4px}
-.ix-q{color:var(--slate)}
-.ix-rows{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500}
-.ix-tools{white-space:nowrap}
-.ix-tools .logo{margin-right:6px;vertical-align:middle}
-
-/* case studies */
-.cases{display:grid;gap:clamp(56px,7vw,88px);margin-top:clamp(56px,7vw,88px)}
-.case{scroll-margin-top:84px}
-.case-head{display:block;align-items:flex-start;padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--line)}
-.case-icon{display:grid;place-items:center;width:52px;height:52px;flex:none;border-radius:14px;background:var(--sky);color:var(--blue)}
-.case-kind{color:var(--blue);font-weight:600;font-size:.92rem}
-.case h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;margin-top:4px;letter-spacing:-.03em}
-.case-meta{display:flex;flex-wrap:wrap;list-style:none;margin:10px 0 0;padding:0;color:var(--slate);font-size:.92rem}
-.case-meta li{padding-right:14px;margin-right:14px;border-right:1px solid var(--line)}
-.case-meta li:last-child{border-right:0;margin-right:0;padding-right:0}
-.case-body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
-
-.stage{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fcfcfb;box-shadow:var(--shadow)}
-.shot{position:relative;display:block;width:100%;padding:0;border:0;background:#fcfcfb;cursor:zoom-in}
+/* projects */
+.cases{display:grid;grid-template-columns:minmax(0,1fr);gap:72px}
+.case-icon,.case-kind{display:none}
+.case h3{font-size:1.4rem;letter-spacing:-.015em}
+.case-meta{display:flex;flex-wrap:wrap;list-style:none;margin:6px 0 0;padding:0;color:var(--soft);font-size:.9rem}
+.case-meta li:not(:last-child)::after{content:",";margin-right:6px}
+.case-body{margin-top:22px}
+.stage{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fcfcfb}
+.shot{display:block;width:100%;padding:0;border:0;background:#fcfcfb;cursor:zoom-in}
 .shot img{display:block;width:100%;height:auto}
-.zoom{position:absolute;top:10px;right:10px;display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.92);border:1px solid var(--line);color:var(--slate);opacity:0;transition:opacity .15s}
-.shot:hover .zoom,.shot:focus-visible .zoom{opacity:1}
 .panel-code{background:var(--code-bg)}
-.code-head{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid var(--line);background:#fff;font-family:var(--mono);font-size:.78rem;color:var(--slate)}
-.code-head .ic{color:var(--blue)}
-.code{margin:0;font-family:var(--mono);font-size:.76rem;line-height:1.65;padding:14px 16px;max-height:460px;overflow:auto;color:var(--ink)}
-.code .c1,.code .c,.code .cm{color:#7C8AA0;font-style:italic}
-.code .k,.code .kd,.code .kt{color:var(--blue);font-weight:500}
-.code .nb,.code .nf{color:#7A3FC4}
-.code .s1,.code .s,.code .s2{color:#0F7A55}
-.code .mi,.code .mf,.code .m{color:#B4530A}
-.code .o,.code .p{color:#5B6B82}
-.caption{margin-top:12px;color:var(--slate);font-size:.93rem;min-height:3em}
-.thumbs{display:flex;gap:8px;margin-top:8px;overflow-x:auto;padding:3px 3px 6px}
-.thumb{flex:none;width:84px;height:56px;padding:0;border:1.5px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;cursor:pointer;transition:border-color .15s,transform .15s}
+.code-head{padding:10px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.76rem;color:var(--slate);background:#fff}
+.code{margin:0;font-family:var(--mono);font-size:.76rem;line-height:1.65;padding:14px 16px;max-height:420px;overflow:auto;color:var(--ink)}
+.code .c1,.code .c,.code .cm{color:#8792A6;font-style:italic}
+.code .k,.code .kd,.code .kt{color:var(--blue)}
+.code .nb,.code .nf{color:#6B3FB0}
+.code .s1,.code .s,.code .s2{color:#17704F}
+.code .mi,.code .mf,.code .m{color:#A24C0E}
+.code .o,.code .p{color:var(--slate)}
+.caption{margin-top:10px;color:var(--slate);font-size:.9rem}
+.thumbs{display:flex;gap:6px;margin-top:12px;overflow-x:auto;padding:2px}
+.thumb{flex:none;width:64px;height:42px;padding:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff;cursor:pointer;opacity:.55}
 .thumb img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
-.thumb:hover{border-color:var(--sky-2)}
-.thumb[aria-current="true"]{border-color:var(--blue);box-shadow:0 0 0 3px var(--sky)}
-.thumb-code{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:var(--sky);color:var(--blue);font-weight:600;font-size:.74rem}
-
-.story h4{font-size:1.02rem;font-weight:700;color:var(--blue);letter-spacing:-.01em}
-.story h4:not(:first-child){margin-top:22px}
-.story p{margin-top:6px;color:var(--slate);line-height:1.65}
+.thumb:hover{opacity:.85}
+.thumb[aria-current="true"]{opacity:1;border-color:var(--ink)}
+.thumb-code{display:grid;place-items:center;font-size:.72rem;font-weight:600;color:var(--ink)}
+.story{margin-top:26px}
+.story h4{font-size:.95rem;font-weight:600}
+.story h4:not(:first-child){margin-top:18px}
+.story p{margin-top:4px;color:var(--slate)}
 .story b{color:var(--ink);font-weight:600}
-.case-tools{display:flex;flex-wrap:wrap;gap:16px;list-style:none;margin:26px 0 0;padding:18px 0 0;border-top:1px solid var(--line);font-size:.92rem;font-weight:500}
-.case-tools li{display:flex;align-items:center;gap:7px}
-.case-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.link{display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border-radius:9px;border:1.5px solid var(--line);text-decoration:none;font-weight:600;font-size:.9rem;color:var(--ink)}
-.link .ic{color:var(--blue)}
-.link:hover{border-color:var(--blue);color:var(--blue)}
+.case-tools{display:flex;flex-wrap:wrap;gap:6px 16px;list-style:none;margin:22px 0 0;padding:0;color:var(--slate);font-size:.9rem}
+.case-tools li{display:flex;align-items:center;gap:6px}
+.case-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:10px;font-weight:500;font-size:.95rem}
 
-/* toolkit */
-.tint{background:var(--sky)}
-.tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;list-style:none;margin:0;padding:0}
-.tool{display:flex;flex-direction:column;gap:14px;align-items:flex-start;background:#fff;border-radius:14px;padding:20px;border:1px solid var(--sky-2)}
-.tool-logos{display:flex;gap:6px;flex:none}
-.tool img{flex:none;width:44px;height:44px;padding:8px;border-radius:11px;background:var(--sky)}
-.tool h3{font-size:1.08rem;font-weight:700}
-.tool p{color:var(--slate);font-size:.93rem;margin-top:4px;line-height:1.55}
-.tool .tool-used{color:var(--blue);font-size:.84rem;font-weight:500;margin-top:10px}
+/* tools */
+.tools{list-style:none;margin:0;padding:0}
+.tool{display:grid;grid-template-columns:96px minmax(0,1fr);gap:20px;padding-block:16px;border-bottom:1px solid var(--line)}
+.tool:first-child{padding-top:0}
+.tool-logos{display:flex;gap:8px;align-items:center;padding-top:2px}
+.tool img{width:22px;height:22px}
+.tool h3{font-size:1rem}
+.tool p{color:var(--slate);font-size:.95rem;margin-top:2px}
 
 /* about */
-.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:clamp(28px,5vw,56px);align-items:start}
-.portrait{margin:0;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
-.portrait img{display:block;width:100%;height:auto}
-.about-main{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,40px);align-items:start}
-.photos{display:grid;gap:14px}
-.candid{display:block;width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow)}
-.avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 0 0 1.5px var(--sky-2)}
-.where{display:flex;align-items:center;gap:12px}
-.about-text p{color:var(--slate);margin-top:16px;max-width:36em}
-.about-text p.big{color:var(--ink);font-family:var(--display);font-size:clamp(1.3rem,2.2vw,1.6rem);font-weight:600;line-height:1.3;letter-spacing:-.02em;margin-top:0}
-.facts{border:1px solid var(--line);border-radius:16px;padding:8px 22px;box-shadow:var(--shadow);background:#fff}
-.facts li{display:block;align-items:flex-start;padding-block:16px;border-bottom:1px solid var(--line)}
-.facts li:last-child{border-bottom:0}
-.facts ul{list-style:none;margin:0;padding:0}
-.facts .ic{color:var(--blue);margin-top:2px}
-.facts .flag{margin-top:2px;flex:none}
-.facts b{display:block;font-weight:600}
-.facts span{color:var(--slate);font-size:.93rem}
-.facts h3{font-size:.95rem;font-weight:700;color:var(--soft);padding:16px 0 0;letter-spacing:0;font-family:var(--body)}
+.about{display:grid;grid-template-columns:160px minmax(0,1fr);gap:32px;align-items:start}
+.about img{display:block;width:100%;height:auto;border-radius:10px}
+.about-text p{color:var(--slate);margin-top:12px}
+.about-text p:first-child{margin-top:0;color:var(--ink)}
+.roles{list-style:none;margin:24px 0 0;padding:0}
+.roles li{padding-block:8px;border-top:1px solid var(--line);font-size:.95rem}
+.roles li div{display:flex;flex-wrap:wrap;gap:4px 10px}
+.roles b{font-weight:600}
+.roles span{color:var(--slate)}
 
-/* next up */
-.next{display:grid;grid-template-columns:minmax(0,1fr);max-width:620px;gap:14px;list-style:none;margin:0;padding:0}
-.next li{display:block;border:1.5px dashed #BCD0F2;border-radius:14px;padding:20px}
-.next-icon{display:grid;place-items:center;width:42px;height:42px;flex:none;border-radius:11px;background:var(--sky);color:var(--blue)}
-.next h3{font-size:1.05rem;font-weight:700}
-.next p{color:var(--slate);font-size:.93rem;margin-top:5px;line-height:1.55}
-.next .next-kind{color:var(--blue);font-size:.84rem;font-weight:500;margin-top:10px}
+/* in progress */
+.next{list-style:none;margin:0;padding:0}
+.next-icon,.next .next-kind{display:none}
+.next h3{font-size:1rem}
+.next p{color:var(--slate);margin-top:2px}
 
 /* contact */
-.contact{background:var(--blue);color:#fff;border-radius:24px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:end;position:relative;overflow:hidden}
-.contact::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;border:40px solid rgba(255,255,255,.07)}
-.contact h2{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:700;letter-spacing:-.03em}
-.contact p{color:#DCE8FC;margin-top:12px;max-width:30em}
-.mail-box{position:relative;z-index:1;display:grid;gap:10px;min-width:0}
-.contact>div{min-width:0}
-.mail{display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink);border-radius:12px;padding:8px 8px 8px 16px}
-.mail a{flex:1;min-width:0;font-weight:600;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.mail .ic{color:var(--blue)}
-.copy{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--sky);color:var(--blue-deep);font:600 .88rem var(--body);padding:8px 12px;border-radius:8px;cursor:pointer}
-.copy:hover{background:var(--sky-2)}
-.btn-light{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35);justify-content:center}
-.btn-light:hover{background:rgba(255,255,255,.2)}
-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:28px 40px;color:var(--soft);font-size:.9rem}
-footer a{color:var(--slate)}
+.contact p{color:var(--slate)}
+.mail{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:16px}
+.mail a{font-weight:500}
+.copy{font:500 .85rem var(--body);color:var(--slate);background:none;border:1px solid var(--line);border-radius:6px;padding:3px 10px;cursor:pointer}
+.copy:hover{color:var(--ink);border-color:var(--soft)}
+.contact .gh{display:inline-block;margin-top:10px}
+footer{padding-block:32px 48px;color:var(--soft);font-size:.85rem}
 
 /* lightbox */
 dialog.lb{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);width:100%}
-dialog.lb::backdrop{background:rgba(15,30,51,.78)}
-.lb-inner{background:#fff;border-radius:14px;overflow:hidden}
+dialog.lb::backdrop{background:rgba(15,30,51,.85)}
+.lb-inner{background:#fff;border-radius:10px;overflow:hidden}
 .lb-inner img{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain}
 .lb-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 2px 0;flex-wrap:wrap}
 .lb-bar p{color:#fff;font-size:.95rem;max-width:70ch}
 .lb-btns{display:flex;gap:8px}
-.lb-btns button{padding:8px 14px;font:600 .9rem var(--body);border-radius:10px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;cursor:pointer}
-.lb-btns button:hover{background:rgba(255,255,255,.2)}
+.lb-btns button{padding:6px 12px;font:500 .9rem var(--body);border-radius:6px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;cursor:pointer}
 
-@media (max-width:1000px){
-  .tools{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .case-body{grid-template-columns:minmax(0,1fr)}
-}
-@media (max-width:860px){
-  .hero .wrap{grid-template-columns:minmax(0,1fr)}
-  .collage{max-width:520px;width:100%;margin-inline:auto}
-  .nav ul{display:none}
-  .about,.contact,.about-main{grid-template-columns:minmax(0,1fr)}
-  .photos{max-width:420px}
-  .index thead{display:none}
-  .index tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding-block:14px;border-bottom:1px solid var(--line)}
-  .index td{border:0;padding:0}
-  .index .ix-q{grid-column:1 / -1}
-  .index .ix-rows{grid-column:1;font-size:.9rem;color:var(--slate)}
-  .index .ix-tools{grid-column:2;grid-row:3}
-  .index td:first-child{grid-column:1 / -1}
-}
 @media (max-width:600px){
-  .tools,.next{grid-template-columns:minmax(0,1fr)}
-  .collage{padding-bottom:150px}
-  .query{right:3%}
-  .query{font-size:.68rem}
-  .print figcaption{font-size:.68rem;padding:3px 7px;top:8px;right:8px}
-  .btn-light{white-space:normal}
-  .mail{padding-left:12px}
-  .copy span{display:none}
-  .thumb{width:70px;height:48px}
-  .case-head{gap:14px}
-  .case-icon{width:44px;height:44px}
+  .nav ul{gap:14px;font-size:.9rem}
+  .about{grid-template-columns:minmax(0,1fr)}
+  .about img{max-width:180px}
+  .tool{grid-template-columns:minmax(0,1fr);gap:8px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<header class="nav" id="nav">
+<header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><img class="brand-photo" src="img/me/avatar.webp" alt="" width="34" height="34">Olamide Okunola</a>
+    <a class="brand" href="#top">Olamide Okunola</a>
     <nav aria-label="Sections"><ul>
       <li><a href="#work">Projects</a></li>
-      <li><a href="#toolkit">Tools</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul></nav>
-    <a class="btn btn-primary btn-sm" href="mailto:okunolaolamide7@gmail.com">Email me</a>
   </div>
 </header>
 
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <div>
-        <p class="where">Data analyst in Akure, Nigeria</p>
-        <h1>I answer real questions with public data, mostly using SQL.</h1>
-        <p class="lead">I'm <b>Olamide Okunola</b>, but most people call me Mide. I study Computer Science at FUTA. I work in <b>SQL</b>, Python and Excel.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#work">See my work</a>
-          <a class="btn btn-ghost" href="https://github.com/midexol/data-analyst-portfolio" target="_blank" rel="noopener">Code on GitHub</a>
-        </div>
-      </div>
-
-      <div class="collage">
-        <figure class="hero-photo"><img src="img/me/presenting.webp" alt="Olamide presenting in front of a screen" width="720" height="399"></figure>
-        <div class="query" aria-label="Name: Olamide Okunola. Handle: midexol. City: Akure.">
-          <div class="q-bar">me.sql</div>
-          <div class="q-body" aria-hidden="true">
-            <div class="q-line"><span id="q-text"><span class="kw">select</span> name, handle, city <span class="kw">from</span> me;</span><span class="q-caret"></span></div>
-            <table class="q-result" id="q-result">
-              <thead><tr><th>name</th><th>handle</th><th>city</th></tr></thead>
-              <tbody><tr><td>Olamide Okunola</td><td><a href="https://github.com/midexol" target="_blank" rel="noopener" tabindex="-1">midexol</a></td><td>Akure</td></tr></tbody>
-            </table>
-            <p class="q-foot" id="q-foot">1 row. I'm midexol on most platforms.</p>
-          </div>
-        </div>
-      </div>
+      <div class="me"><img src="img/me/avatar.webp" alt="" width="56" height="56"><p><b>Olamide Okunola</b>Data analyst</p></div>
+      <h1>Data analyst working with SQL, Python and Excel.</h1>
+      <p class="lead">I study Computer Science at FUTA. All my projects use public data, and the code is on GitHub.</p>
+      <div class="links"><a href="#work">See my work</a><a href="https://github.com/midexol/data-analyst-portfolio" target="_blank" rel="noopener">GitHub</a><a href="mailto:okunolaolamide7@gmail.com">Email</a></div>
+      <figure class="hero-photo"><img src="img/me/presenting.webp" alt="Olamide presenting in front of a screen" width="720" height="399"></figure>
     </div>
   </section>
 
-  <section class="sec" id="work" style="padding-top:clamp(24px,4vw,48px)">
+  <section class="sec" id="work">
     <div class="wrap">
-      <div class="sec-head">
-        <h2>Projects</h2>
-        <p>Click a project to jump to it. The code for each one is on GitHub.</p>
-      </div>
-      <table class="index">
-        <thead><tr><th>Project</th><th>The question</th><th>Data</th><th>Tools</th></tr></thead>
-        <tbody><tr><td><a href="#lights-out" class="ix-name"><span>Lights Out</span></a></td><td class="ix-q">Why does Nigeria have so little power?</td><td class="ix-rows">5,459 country-years</td><td class="ix-tools"><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="18" height="18"><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="18" height="18"><img class="logo" src="img/tools/jupyter.svg" alt="Jupyter" title="Jupyter" width="18" height="18"></td></tr><tr><td><a href="#naira" class="ix-name"><span>Naira on the Plate</span></a></td><td class="ix-q">Is food in Nigeria really getting cheaper?</td><td class="ix-rows">68 markets, 7 years</td><td class="ix-tools"><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="18" height="18"><img class="logo" src="img/tools/excel.svg" alt="Excel" title="Excel" width="18" height="18"><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="18" height="18"></td></tr><tr><td><a href="#markets" class="ix-name"><span>Do Prediction Markets Know?</span></a></td><td class="ix-q">When Polymarket says 70%, does it happen?</td><td class="ix-rows">1,890 markets</td><td class="ix-tools"><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="18" height="18"><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="18" height="18"></td></tr><tr><td><a href="#olist" class="ix-name"><span>Late Parcels, Low Stars</span></a></td><td class="ix-q">What does a late parcel cost a store?</td><td class="ix-rows">96,203 orders</td><td class="ix-tools"><img class="logo" src="img/tools/mysql.svg" alt="SQL" title="SQL" width="18" height="18"><img class="logo" src="img/tools/python.svg" alt="Python" title="Python" width="18" height="18"></td></tr></tbody>
-      </table>
+      <h2>Projects</h2>
       <div class="cases">
     <article class="case" id="lights-out">
       <header class="case-head">
@@ -522,60 +380,43 @@ dialog.lb::backdrop{background:rgba(15,30,51,.78)}
     </div>
   </section>
 
-  <section class="sec tint" id="toolkit">
+  <section class="sec" id="toolkit">
     <div class="wrap">
-      <div class="sec-head">
-        <h2>Tools</h2>
-        <p>What I use, and what I use it for.</p>
-      </div>
+      <h2>Tools</h2>
       <ul class="tools"><li class="tool"><div class="tool-logos"><img src="img/tools/mysql.svg" alt="" width="40" height="40"></div><div><h3>SQL</h3><p>Most of my work. Cleaning, joins, window functions and cohorts. I use MySQL.</p></div></li><li class="tool"><div class="tool-logos"><img src="img/tools/excel.svg" alt="" width="40" height="40"><img src="img/tools/sheets.svg" alt="" width="40" height="40"></div><div><h3>Excel and Google Sheets</h3><p>Workbooks with lookups, SUMIFS, dropdowns and charts that update.</p></div></li><li class="tool"><div class="tool-logos"><img src="img/tools/python.svg" alt="" width="40" height="40"><img src="img/tools/pandas.svg" alt="" width="40" height="40"><img src="img/tools/jupyter.svg" alt="" width="40" height="40"></div><div><h3>Python, pandas and Jupyter</h3><p>Charts, stats tests, pulling data from APIs, and exploring a new dataset before I decide what to ask.</p></div></li><li class="tool"><div class="tool-logos"><img src="img/tools/powerbi.svg" alt="" width="40" height="40"></div><div><h3>Power BI</h3><p>Interactive dashboards.</p></div></li><li class="tool"><div class="tool-logos"><img src="img/tools/git.svg" alt="" width="40" height="40"><img src="img/tools/github.svg" alt="" width="40" height="40"></div><div><h3>Git and GitHub</h3><p>Version control for all my projects. Every query, chart and write-up here is on GitHub.</p></div></li><li class="tool"><div class="tool-logos"><img src="img/tools/claude.svg" alt="" width="40" height="40"><img src="img/tools/openai.svg" alt="" width="40" height="40"></div><div><h3>AI tools</h3><p>I use Claude and ChatGPT to draft queries, debug code and review my write-ups faster. I check every number myself.</p></div></li></ul>
     </div>
   </section>
 
   <section class="sec" id="about">
-    <div class="wrap about">
-      <div class="photos"><figure class="portrait"><img src="img/me/headshot.webp" alt="Olamide Okunola" width="536" height="670"></figure></div>
-      <div class="about-main">
+    <div class="wrap">
+      <h2>About</h2>
+      <div class="about">
+        <img src="img/me/headshot.webp" alt="Olamide Okunola" width="536" height="670">
         <div class="about-text">
-          <div class="sec-head" style="margin-bottom:24px"><h2>About me</h2></div>
-          <p class="big">I'm a data analyst and Computer Science student at the Federal University of Technology, Akure.</p>
+          <p>I'm a data analyst and Computer Science student at the Federal University of Technology, Akure. I'm open to remote work.</p>
           <p>All my projects use public data, so anyone can rerun the code and check the numbers.</p>
           <p>I also have software development skills, mostly building payment apps and trading bots.</p>
+          <ul class="roles"><li><div><b>Content Lead</b><span>Google Developer Groups on Campus (GDGoC), FUTA</span></div></li><li><div><b>Welfare Director</b><span>Department of Computer Science, FUTA</span></div></li><li><div><b>Millennium Fellow</b><span>Millennium Fellowship, Class of 2024</span></div></li></ul>
         </div>
-        <aside class="facts">
-          <ul>
-            <li><div><b>Akure, Nigeria</b><span>Open to remote work</span></div></li>
-            <li><div><b>Computer Science, FUTA</b><span>Federal University of Technology, Akure</span></div></li>
-          </ul>
-          <h3>Outside the data</h3>
-          <ul><li><div><b>Content Lead</b><span>Google Developer Groups on Campus (GDGoC), FUTA</span></div></li><li><div><b>Welfare Director</b><span>Department of Computer Science, FUTA</span></div></li><li><div><b>Millennium Fellow</b><span>Millennium Fellowship, Class of 2024</span></div></li></ul>
-        </aside>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="next" style="padding-top:0">
+  <section class="sec" id="next">
     <div class="wrap">
-      <div class="sec-head"><h2>In progress</h2></div>
+      <h2>In progress</h2>
       <ul class="next"><li><div><h3>Fintech app reviews</h3><p>Over 200,000 Play Store reviews of OPay, Moniepoint, Kuda and PalmPay. What people complain about most.</p><p class="next-kind">Text analysis</p></div></li></ul>
     </div>
   </section>
 
-  <section class="sec" id="contact" style="padding-top:0">
+  <section class="sec contact" id="contact">
     <div class="wrap">
-      <div class="contact">
-        <div>
-          <h2>Get in touch</h2>
-          <p>I'm open to analyst roles and projects, remote or in Nigeria. Email is the fastest way to reach me.</p>
-        </div>
-        <div class="mail-box">
-          <div class="mail"><a id="mail" href="mailto:okunolaolamide7@gmail.com">okunolaolamide7@gmail.com</a><button class="copy" type="button" id="copy"><span>Copy</span></button></div>
-          <a class="btn btn-light" href="https://github.com/midexol" target="_blank" rel="noopener">github.com/midexol</a>
-        </div>
-      </div>
-      <footer><span>© 2026 Olamide Okunola</span><a href="https://github.com/midexol/data-analyst-portfolio" target="_blank" rel="noopener">See the code for everything here on GitHub</a></footer>
+      <h2>Contact</h2>
+      <p>Open to analyst roles and projects. Email is the fastest way to reach me.</p>
+      <div class="mail"><a id="mail" href="mailto:okunolaolamide7@gmail.com">Email me</a><a href="https://github.com/midexol/data-analyst-portfolio" target="_blank" rel="noopener">GitHub</a><button class="copy" type="button" id="copy"><span>Copy email</span></button></div>
     </div>
   </section>
+  <footer><div class="wrap">© 2026 Olamide Okunola</div></footer>
 </main>
 
 <dialog class="lb" id="lb" aria-label="Screenshot">
@@ -621,34 +462,10 @@ dialog.lb::backdrop{background:rgba(15,30,51,.78)}
   lb.addEventListener("click", e => { if (e.target === lb) close(); });
   lb.addEventListener("keydown", e => { if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); });
 
-  /* nav: border once scrolled, highlight the current section */
-  const nav = document.getElementById("nav");
-  const onScroll = () => nav.classList.toggle("scrolled", scrollY > 8);
-  addEventListener("scroll", onScroll, { passive: true }); onScroll();
-  const links = [...document.querySelectorAll(".nav ul a")];
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
-    }), { rootMargin: "-40% 0px -55% 0px" });
-    ["work", "toolkit", "about", "contact"].forEach(id => io.observe(document.getElementById(id)));
-  }
-
-  /* the one moment of motion: the query types itself, then the row appears */
-  const qt = document.getElementById("q-text"), caret = document.querySelector(".q-caret"), res = document.getElementById("q-result"), foot = document.getElementById("q-foot");
-  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const html = qt.innerHTML, plain = qt.textContent; let i = 0;
-    qt.textContent = ""; res.classList.add("q-hide"); foot.classList.add("q-hide"); caret.classList.add("on");
-    setTimeout(function type() {
-      qt.textContent = plain.slice(0, ++i);
-      if (i < plain.length) setTimeout(type, 36 + Math.random() * 40);
-      else { qt.innerHTML = html; setTimeout(() => { res.classList.remove("q-hide"); setTimeout(() => foot.classList.remove("q-hide"), 250); setTimeout(() => caret.classList.remove("on"), 1600); }, 300); }
-    }, 600);
-  }
-
   /* copy email */
   const c = document.getElementById("copy"), label = c.querySelector("span");
   c.addEventListener("click", () => {
-    const ok = () => { label.textContent = "Copied"; setTimeout(() => label.textContent = "Copy", 1500); };
+    const ok = () => { label.textContent = "Copied"; setTimeout(() => label.textContent = "Copy email", 1500); };
     const sel = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); const g = getSelection(); g.removeAllRanges(); g.addRange(r); };
     try { navigator.clipboard.writeText("okunolaolamide7@gmail.com").then(ok, sel); } catch (e) { sel(); }
   });
